@@ -62,7 +62,16 @@ self.addEventListener('fetch', (e) => {
                             return cache.match(e.request)
                         })
                 })
-                .catch (err => console.log('Error fetching api: ', err))
+                .catch(err => console.log('Error fetching api: ', err))
         )
     }
+
+    e.respondWith(
+        caches
+            .match(e.request)
+            .then(response => {
+                return response || fetch(e.request);
+            })
+            .catch(err => console.log(err))
+    )
 })
