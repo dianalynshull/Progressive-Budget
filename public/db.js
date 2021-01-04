@@ -7,7 +7,7 @@ request.onupgradeneeded = e => {
     db.createObjectStore('pending', { autoIncrement: true });
 };
 
-request.onsucces = e => {
+request.onsuccess = e => {
     db = e.target.result;
     if (navigator.onLine) {
         checkDatabase();
