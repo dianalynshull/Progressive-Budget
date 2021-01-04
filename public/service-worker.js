@@ -1,4 +1,5 @@
 const fileCacheName = 'budget-v1';
+const dataCacheName = 'budgetData-v1'
 const filesToCache = [
     '/',
     '/index.html',
@@ -32,7 +33,7 @@ self.addEventListener('activate', (e) => {
             .then(keyList => {
                 return Promise.all(
                     keyList.map(key => {
-                        if (key !== fileCacheName) {
+                        if (key !== fileCacheName || key !== dataCacheName) {
                             console.log('deleting cache: ', key);
                             return caches.delete(key);
                         }
@@ -43,3 +44,4 @@ self.addEventListener('activate', (e) => {
     );
     self.clients.claim();
 });
+
