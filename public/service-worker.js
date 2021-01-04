@@ -1,5 +1,5 @@
-const fileCacheName = 'budget-v1';
-const dataCacheName = 'budgetData-v1'
+const fileCacheName = 'budget-v2';
+const dataCacheName = 'budgetData-v2'
 const filesToCache = [
     '/',
     '/index.html',
