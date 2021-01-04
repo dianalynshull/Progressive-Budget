@@ -17,3 +17,9 @@ request.onsucces = e => {
 request.onerror = e => {
     console.log('Error on connection: ', e.target.errorCode);
 }
+
+const saveRecord = (record) => {
+    const transaction = db.transaction(["pending"], "readwrite");
+    const store = transaction.objectStore("pending");
+    store.add(record);
+}
